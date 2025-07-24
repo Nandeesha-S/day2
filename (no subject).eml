@@ -1,0 +1,122 @@
+Delivered-To: 4mt23ai400@mite.ac.in
+Received: by 2002:a05:6200:4585:b0:5ad:8b2c:36b with SMTP id bu5csp604417qnb;
+        Wed, 23 Jul 2025 20:31:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=2; AJvYcCVpcSxWFPhr1aaJ+42t5mLzvl3Hri2hpyfApS2F+VrDIgW4kF6CF2k6CdVMMknTSlAue4PIJ741SVWM@mite.ac.in
+X-Received: by 2002:a05:690c:7483:b0:70e:2d17:84b3 with SMTP id 00721157ae682-719b423e771mr67577597b3.37.1753327919268;
+        Wed, 23 Jul 2025 20:31:59 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1753327919; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AbqeVK309dUVxG4jWzgbkIX0XwJQOEeB3GAeLvhUMw5/ydeJ87Hl7JM01qMc024U4s
+         qAih/kSXqoVHPLcku7T/vmSNq0ZtsBztzjLTiOm3K+HpmWsgO7eEUrD5IhOTnxHUnXmJ
+         VPRVlCqHw3ZJjIDTehSEqoeNH0PWYNQ3+NML4iLMGQRAXtvp+sNlwMMAxCZjNvInRYwj
+         aA5LM5g8h3u3ARIAtymB3f20qO0edvmiYJ7qtdbycUHz5+nwO3DK3byotFU6NbaJX6o1
+         JHB1hCW18uudgX/oBG/sU6qRuqsQ//oiOJAMXdDpVLRG0p1CbEErZGpMOrZb4xKMZxFC
+         kqXA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=fSNmQVCPTTj0yEusBQCAZjeT+p6zoGwlqRpH8KPJgr8=;
+        fh=HJQuFNWVJuvBiieSxlAq4k6j0HVTQPmij1yqASZVrvY=;
+        b=bDPE6mzFIkbagixvv7HJHesv8YPNFAWdk4/s2SMP9vJ/wAcNWWfzdtwi4iKrAC/Av0
+         3+R2bIc/wdnsuoMitbEHIg5QX2sRo+C/rWF3RnU4jHsWIyTLHOy10+thKNQN9Ec0K3yE
+         6ep8t/HCxMzwHjerypXxUmvbfv6GHb/v30aRYiHg/c4A/tn2xVnbLSsrYKVz1UBugWe5
+         VaY8TAmJYSdgVg1EfZ6RhaUp44fl7Ci/i9MzJoj7C2E0n8aCk+nFEdz1/VUKbG7jYDjM
+         MWT18sFehqS6D2v1x1oa9vxv57C2TRrsPGLefqqSkBhmAtXrM0rLXlyDQDd/bRjCaVUy
+         M0ig==;
+        dara=google.com
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@mite-ac-in.20230601.gappssmtp.com header.s=20230601 header.b=0qunQ7OX;
+       spf=softfail (google.com: domain of transitioning 4mt22ai061@mite.ac.in does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=4mt22ai061@mite.ac.in;
+       dara=pass header.i=@mite.ac.in
+Return-Path: <4mt22ai061@mite.ac.in>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id 00721157ae682-719cb9410e6sor3391887b3.10.2025.07.23.20.31.59
+        for <4mt23ai400@mite.ac.in>
+        (Google Transport Security);
+        Wed, 23 Jul 2025 20:31:59 -0700 (PDT)
+Received-SPF: softfail (google.com: domain of transitioning 4mt22ai061@mite.ac.in does not designate 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@mite-ac-in.20230601.gappssmtp.com header.s=20230601 header.b=0qunQ7OX;
+       spf=softfail (google.com: domain of transitioning 4mt22ai061@mite.ac.in does not designate 209.85.220.41 as permitted sender) smtp.mailfrom=4mt22ai061@mite.ac.in;
+       dara=pass header.i=@mite.ac.in
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mite-ac-in.20230601.gappssmtp.com; s=20230601; t=1753327919; x=1753932719; darn=mite.ac.in;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=fSNmQVCPTTj0yEusBQCAZjeT+p6zoGwlqRpH8KPJgr8=;
+        b=0qunQ7OX7n2smNasu20VyxqpcDcdiKvoQ46gNCowK1p8DCbIEMQzJcc0IEMEbtbI4j
+         GZCY56jFf9sjpQEV1iTcLI9/BREBSgqzdxmt9y0TsRcmuqquvStrRVeiMezCue/iYAzy
+         SzzRZa6gkSQTjRNnKgoMAw1TZhL0u4CWiODjEeBbhWqNpHWOavNqvwcSyQQXzgkd9VmL
+         arviopfo7QmxREQ2MHHeQwTPBmK/AamsENdtMZf7YM0+cl9XUTDkOWv0g8ahFmeL/FZp
+         fpcyHdvAFlpA6CQdTXIeTz8Wc03EiwoStUs9W1X9YFhhKzPwCvTyj3X/To45+ZUTPlHZ
+         Ggxg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1753327919; x=1753932719;
+        h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=fSNmQVCPTTj0yEusBQCAZjeT+p6zoGwlqRpH8KPJgr8=;
+        b=kAQdNk3W+gNFGk2+bwYVycrY4ErAGY/L+rxQwHDDrLHTdvGf0RNbzzXVNLbBZmMMeG
+         qWkhSBKQhpP0+sDba3cPRRDOlasi3VtlEX0IYCy8osFyGTUT2g3yB6DPO1EDD3cgC6L9
+         n9Gs9b1pCDoL6BcZaCzzD17ruHAuF5cf32C+ZPK341d14sbWSH3VcyDp2IxggvbbF0au
+         1Sa2Tzn/D6Jm7LyLH4bgki1+8ffobvYdd42vu6Z/QOAyPC6LJvCv90AASZmovsibQeQX
+         2hnGD+hHG9uoO/w9lZBwFXXV/PfX3tMni4uzBr0ts90hlHevpKnXEfF8dK6TZZKfjNPW
+         sLfA==
+X-Forwarded-Encrypted: i=1; AJvYcCUMZIGoJbDtcUB/REzkbJmQSEl9d/qySbo5XJG1RoTBSF+1xp02iU/NYFPyqbYpVsAhmEDnHMV7SfzA@mite.ac.in
+X-Gm-Message-State: AOJu0YxN/VqbKkbX+/57NqBwAy7thYZ6Dm9TLHqJ8kHRALAUuBCZ24z2
+	3R2ZLwbE1xVjx55hOc/kKNW0iJ473nTl+I7ysH1A2Y0SBqCW5FDOi52u7tGyNUzAXGR/gDPvN7s
+	lv7LAomrq7COAEXz4TuMW+lvuDqG28NAxH/hQvaUWG6eF
+X-Gm-Gg: ASbGncvUVwBQNGv+LNJZPDchQRF/FtL+nSSYXBN9t0aSScTzfVO+DT0bZZNzzbMCRlh
+	ulYvHMdnkZzILcA61mUz/2QLixt1HuhONWyci/sNfNnusdk8p0fUneuW2h8Khv4TOQ6y7hc8eAT
+	JwaRtMuGUrqDw9/lieheJ/8L9XbMVyYzrKuTUEBJ23WIzyopiIqjtTjZ/wRl3zL7jGJ1711o+SJ
+	sl9VyAD
+X-Google-Smtp-Source: AGHT+IF/UcUV/sxXs9hesJPvMItuDSTHsz1m8dNQrF0eXBVvoCeeCgFDKaOFyPhXmsUtZlxwOkhdCVwAih4MiiKizT0=
+X-Received: by 2002:a05:690c:d90:b0:717:d7d1:4697 with SMTP id
+ 00721157ae682-719b42262e4mr71501377b3.30.1753327918716; Wed, 23 Jul 2025
+ 20:31:58 -0700 (PDT)
+MIME-Version: 1.0
+From: "Vasuki ." <4mt22ai061@mite.ac.in>
+Date: Thu, 24 Jul 2025 09:04:35 +0530
+X-Gm-Features: Ac12FXyLgKxmSdENNK41WuZIQ0Sx3RvpDY9Ebx1hQBv1Hwf3R6JDgOXbQJof6dI
+Message-ID: <CAMKOJonkYDu6NgweQzXVEuTa8hCSxZ2O28qF36sCLT9az973Qw@mail.gmail.com>
+Subject: 
+To: Karthik Poojar <4mt23ai400@gmail.com>, Karthik Poojar <4mt23ai400@mite.ac.in>
+Content-Type: multipart/alternative; boundary="000000000000c51c48063aa477fb"
+
+--000000000000c51c48063aa477fb
+Content-Type: text/plain; charset="UTF-8"
+
+  # Queue using a list (array)
+
+queue = []
+
+# Enqueue
+def enqueue(x):
+    queue.append(x)
+
+# Dequeue
+def dequeue():
+    if not queue:
+        return "Queue is empty"
+    return queue.pop(0)
+
+# Example
+enqueue(10)
+enqueue(20)
+enqueue(30)
+print(dequeue())  # 10
+print(dequeue())  # 20
+print(queue)      # [30]
+
+--000000000000c51c48063aa477fb
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">=C2=A0 # Queue using a list (array)<br><br>queue =3D []<br=
+><br># Enqueue<br>def enqueue(x):<br>=C2=A0 =C2=A0 queue.append(x)<br><br>#=
+ Dequeue<br>def dequeue():<br>=C2=A0 =C2=A0 if not queue:<br>=C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 return &quot;Queue is empty&quot;<br>=C2=A0 =C2=A0 return que=
+ue.pop(0)<br><br># Example<br>enqueue(10)<br>enqueue(20)<br>enqueue(30)<br>=
+print(dequeue()) =C2=A0# 10<br>print(dequeue()) =C2=A0# 20<br>print(queue) =
+=C2=A0 =C2=A0 =C2=A0# [30]<div class=3D"gmail-yj6qo"></div><div class=3D"gm=
+ail-adL"><br></div></div>
+
+--000000000000c51c48063aa477fb--
